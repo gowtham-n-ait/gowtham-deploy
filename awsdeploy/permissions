@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo chmod +x awsdeploy/permissions
-sudo chmod +x ./awsdeploy/*
+sudo chmod +x awsdeploy/*
