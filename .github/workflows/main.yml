@@ -1,3 +1,5 @@
+name: deploy to s3 and codedeploy
+
 on:
   push:
     branches:
