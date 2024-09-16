@@ -1,3 +1,4 @@
 #!/bin/bash
+sudo chmod +x awsdeploy/before-install
 sudo rm -rf /opt/nodejs/PCAI-Frontend
 sudo mkdir /opt/nodejs/PCAI-Frontend
