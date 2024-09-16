@@ -9,30 +9,30 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout the files
-      uses: actions/checkout@v2
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
-    - name: Install zip and unzip
-      run: sudo apt-get install zip unzip -y
+      - name: Install zip and unzip
+        run: sudo apt-get install zip unzip -y
 
-    - name: download aws cli
-      run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - name: download aws cli
+        run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
-    - name: unzip aws cli
-      run: unzip awscliv2.zip
+      - name: unzip aws cli
+        run: unzip awscliv2.zip
 
-    - name: install aws cli
-      run: sudo ./aws/install --update
+      - name: install aws cli
+        run: sudo ./aws/install --update
 
-    - name: Zip the files
-      run: sudo zip -r github.zip . -x "aws*" ".git*"
+      - name: Zip the files
+        run: sudo zip -r github.zip . -x "aws*" ".git*"
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
-          aws-region: us-east-1
-    - name: Zip file and upload to s3
-      run: aws s3 cp github.zip s3://sample-bucket-3231
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+            aws-region: us-east-1
+      - name: Zip file and upload to s3
+        run: aws s3 cp github.zip s3://sample-bucket-3231
