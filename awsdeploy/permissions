@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod +x /opt/nodejs/PCAI-Frontend/awsdeploy/*
+sudo chmod +x ./awsdeploy/*
