@@ -1,3 +1,4 @@
 #!/bin/bash
 sudo chown -R dev:dev /opt/nodejs/PCAI-Frontend
 sudo systemctl restart nginx
+echo$?>>output.txt
