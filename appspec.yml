@@ -8,3 +8,7 @@ hooks:
     - location: awsdeploy/before-install
       timeout: 300
       runas: root
+  AfterInstall:
+    - location: awsdeploy/permissions
+      timeout: 300
+      runas: root
