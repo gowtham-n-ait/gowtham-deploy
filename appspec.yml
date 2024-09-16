@@ -8,3 +8,7 @@ files:
     - location: awsdeploy/permissions
       timeout: 300
       runas: root
+  BeforeInstall:
+    - location: scripts/nginx
+      timeout: 300
+      runas: root
