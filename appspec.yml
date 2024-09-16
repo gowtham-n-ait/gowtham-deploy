@@ -5,10 +5,10 @@ files:
     destination: /opt/nodejs/PCAI-Frontend
 hooks:
   BeforeInstall:
-    - location: awsdeploy/before-install
+    - location: /awsdeploy/before-install
       timeout: 300
       runas: root
   AfterInstall:
-    - location: awsdeploy/permissions
+    - location: ~/awsdeploy/permissions
       timeout: 300
       runas: root
