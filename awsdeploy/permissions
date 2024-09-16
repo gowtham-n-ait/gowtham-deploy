@@ -1,2 +1,5 @@
 #!/bin/bash
-sudo chmod +x awsdeploy/*
+
+sudo chmod +x awsdeploy/application-start
+sudo chmod +x awsdeploy/before-install
+sudo chmod +x awsdeploy/permissions
