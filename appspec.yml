@@ -8,3 +8,7 @@ hooks:
     - location: awsdeploy/before-install
       timeout: 300
       runas: root
+  ApplicationStart:
+    - location: /awsdeploy/application-start
+      timeout: 300
+      runas: root
