@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/nodejs/PCAI-Frontend
+hooks:
+  BeforeInstall:
+    - location: awsdeploy/before-install
+      timeout: 300
+      runas: root
