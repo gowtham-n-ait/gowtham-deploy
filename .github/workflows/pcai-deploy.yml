@@ -26,9 +26,7 @@ jobs:
           npm install
 
       - name: Build for Staging
-        run: |
-          npm start
-          npm run build
+        run: npm run build
 
       - name: Zip the build
         run: zip -r build.zip build
