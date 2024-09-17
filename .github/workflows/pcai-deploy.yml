@@ -27,7 +27,7 @@ jobs:
 
       - name: Build for Staging
         run: |
-          npx react-scripts build
+          CI=false npm run build:staging
 
       - name: Zip the build
         run: zip -r build.zip build
