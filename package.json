@@ -5,12 +5,14 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "build:staging": "echo 'This is a staging build step' && npm install",  // Example build script
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adem Cemil YALCIN",
   "license": "ISC",
   "dependencies": {
-    "express":"latest",
-    "ejs":"latest"
+    "express": "latest",
+    "ejs": "latest"
   }
 }
+
