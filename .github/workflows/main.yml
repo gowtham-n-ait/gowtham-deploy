@@ -26,7 +26,7 @@ jobs:
         run: sudo ./aws/install --update
 
       - name: Zip the files
-        run: sudo zip -r github.zip . -x "aws*" ".git*"
+        run: sudo zip -r github.zip . -x "awscli*" ".git*" "aws"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
