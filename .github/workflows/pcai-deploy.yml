@@ -27,7 +27,6 @@ jobs:
 
       - name: Build for Staging
         run: |
-          npm start
           npm run build
 
       - name: Zip the build
