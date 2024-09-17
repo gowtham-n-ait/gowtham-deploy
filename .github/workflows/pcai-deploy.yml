@@ -25,9 +25,6 @@ jobs:
           sync; echo 3 | sudo tee /proc/sys/vm/drop_caches && free -h
           npm install
 
-      - name: Build for Staging
-        run: CI=false npm run build:staging
-
       - name: Zip the build
         run: zip -r build.zip build
 
