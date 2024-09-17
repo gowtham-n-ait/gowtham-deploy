@@ -1,0 +1,67 @@
+name: Staging Pipeline
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    name: Staging Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zip unzip
+          sync; echo 3 | sudo tee /proc/sys/vm/drop_caches && free -h
+          npm install
+
+      - name: Build for Staging
+        run: CI=false npm run build:staging
+
+      - name: Zip the build
+        run: zip -r build.zip build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build.zip
+          path: build.zip
+
+  deploy:
+    name: Staging Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build.zip
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install AWS CLI
+        run: pip install awscli
+
+      - name: Push build to S3
+        run: aws deploy push --application-name dev-mytickets --s3-location s3://sample-bucket-3231/staging-build.zip --region us-east-1
+
+      - name: Create CodeDeploy Deployment
+        run: |
+          aws deploy create-deployment \
+            --application-name dev-mytickets \
+            --s3-location bucket=sample-bucket-3231,key=staging-build.zip,bundleType=zip \
+            --deployment-group-name pcai-frontend \
+            --deployment-config-name CodeDeployDefault.AllAtOnce
