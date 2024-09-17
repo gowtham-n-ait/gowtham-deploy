@@ -3,12 +3,12 @@ os: linux
 files:
   - source: /
     destination: /opt/nodejs/PCAI-Frontend
-  BeforeInstall:
-    - location: awsdeploy/before-install
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: awsdeploy/permissions
-      timeout: 300
-      runas: root
+#  BeforeInstall:
+#    - location: awsdeploy/before-install
+#      timeout: 300
+#      runas: root
+#  AfterInstall:
+#    - location: awsdeploy/permissions
+#      timeout: 300
+#      runas: root
   
