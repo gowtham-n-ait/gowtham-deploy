@@ -22,7 +22,6 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2.0.6
         with:
           secret-ids: |
-            sample
             arn:aws:secretsmanager:us-east-1:905418336942:secret:sample
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
