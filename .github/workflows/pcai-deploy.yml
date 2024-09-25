@@ -19,6 +19,7 @@ jobs:
           node-version: '16'
                   
       - name: AWS Secrets Manager GitHub Action
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
             arn:aws:secretsmanager:us-east-1:905418336942:secret:sample
