@@ -21,11 +21,10 @@ jobs:
       - name: AWS Secrets Manager GitHub Action
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
-          secret-ids: |
-            arn:aws:secretsmanager:us-east-1:905418336942:secret:sample
+          secret-ids: arn:aws:secretsmanager:us-east-1:905418336942:secret:sample
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           AWS_REGION: us-east-1
 
       - name: Install dependencies
